@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff8ee">
+    <title>来家里吃饭 | Family Menu</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css?v=20260705">
+  </head>
+  <body>
+    <div class="phone-canvas">
+      <section class="welcome-screen" id="welcomeScreen" aria-label="预约用餐">
+        <div class="welcome-page">
+          <section class="welcome-top" aria-hidden="true"></section>
+          <section class="welcome-middle">
+            <div class="welcome-form-overlay">
+              <form class="reservation-form" id="reservationForm">
+                <label class="form-card date-card">
+                  <span class="field-label">用餐日期</span>
+                  <span class="date-control">
+                    <input id="dinnerDate" type="date" aria-label="用餐日期">
+                    <button class="pending-button" id="datePending" type="button" aria-pressed="false">待定</button>
+                  </span>
+                </label>
+
+                <div class="form-row">
+                  <fieldset class="form-card meal-card">
+                    <legend class="field-label">用餐时间</legend>
+                    <div class="meal-options">
+                      <label>
+                        <input type="radio" name="mealPeriod" value="午餐">
+                        <span>午餐</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="mealPeriod" value="晚餐">
+                        <span>晚餐</span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <label class="form-card count-card">
+                    <span class="field-label">人数</span>
+                    <span class="select-shell">
+                      <select id="guestCount" aria-label="人数"></select>
+                    </span>
+                  </label>
+                </div>
+
+                <label class="form-card name-card">
+                  <span class="field-label">来宾</span>
+                  <input id="guestName" type="text" placeholder="比如：小王一家">
+                </label>
+              </form>
+            </div>
+          </section>
+          <section class="welcome-bottom">
+            <button class="enter-menu-hotspot" id="enterMenu" type="button" aria-label="进入菜单"></button>
+          </section>
+        </div>
+      </section>
+
+      <section class="menu-screen is-hidden" id="menuScreen" aria-label="菜单选择">
+        <header class="menu-v2-header">
+          <div class="menu-v2-brand">
+            <p>MAISON MENU</p>
+            <h1>家宴菜单</h1>
+            <span id="brandCuisineLine">CHINESE · WESTERN · DRINKS</span>
+          </div>
+          <button class="order-button menu-order-button" id="openCart" type="button" aria-label="查看订单">
+            <span>ORDER</span>
+            <strong id="cartCount">0</strong>
+          </button>
+        </header>
+
+        <main class="menu-v2-main">
+          <nav class="filters menu-v2-tabs" id="filters" aria-label="菜单分类"></nav>
+          <section class="menu-list menu-v2-list" id="menuGrid" aria-label="菜单"></section>
+
+          <section class="drink-menu menu-v2-drinks" id="drinkMenu" aria-label="饮品" hidden>
+            <div id="drinkGrid" class="drink-grid"></div>
+          </section>
+
+          <footer class="menu-v2-footer" id="menuFooterNote">A table made for sharing, chatting, and eating well.</footer>
+        </main>
+      </section>
+    </div>
+
+    <aside class="order-panel" id="orderPanel" aria-label="已点菜单">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">请将此页截图转发</p>
+          <h2>Order Summary</h2>
+        </div>
+        <button class="text-button" id="closeCart" type="button">返回</button>
+      </div>
+      <section class="order-reservation">
+        <div class="order-reservation-copy">
+          <span>预定信息</span>
+          <strong id="orderReservationText"></strong>
+        </div>
+        <button class="text-button order-edit-reservation" id="orderEditReservation" type="button">修改预定</button>
+      </section>
+      <div id="orderItems" class="order-items"></div>
+      <label class="note-field">
+        <span>备注</span>
+        <div class="note-options">
+          <div class="note-presets">
+            <label class="note-option">
+              <input type="checkbox" name="orderNotePreset" value="不吃辣">
+              <span>不吃辣</span>
+            </label>
+            <label class="note-option">
+              <input type="checkbox" name="orderNotePreset" value="不吃香菜">
+              <span>不吃香菜</span>
+            </label>
+            <label class="note-option">
+              <input type="checkbox" name="orderNotePreset" value="不吃洋葱">
+              <span>不吃洋葱</span>
+            </label>
+          </div>
+          <label class="note-other">
+            <span>其他</span>
+            <input id="orderNoteOther" type="text" maxlength="40" aria-label="其他口味备注">
+          </label>
+        </div>
+      </label>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <script src="menu-data.js?v=20260629"></script>
+    <script src="app.js?v=20260629"></script>
+  </body>
+</html>

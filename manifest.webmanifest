@@ -1,0 +1,9 @@
+{
+  "name": "来家里吃饭点菜",
+  "short_name": "点菜",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fbf8f1",
+  "theme_color": "#f6f1e8",
+  "lang": "zh-CN"
+}
